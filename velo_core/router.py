@@ -1,6 +1,8 @@
+from aiohttp import web
+
 from .api import v1
 
 
 routes = [
-    'get', '/test', v1.test
+    web.get('/test', v1.test)
 ]
