@@ -11,6 +11,8 @@ trafaret = "*"
 sqlalchemy = "*"
 asyncpgsa = "*"
 alembic = "*"
+psycopg2 = "*"
+uwloop = "*"
 
 [requires]
 python_version = "3.7"

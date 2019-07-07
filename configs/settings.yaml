@@ -1,0 +1,4 @@
+
+settings:
+  db:
+    cs: postgres://velo_core_user:velo_core_pass@localhost/velo_core_db

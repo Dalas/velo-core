@@ -4,6 +4,7 @@ services:
 
   web:
     build: .
+    container_name: velo_core
     ports:
       - "8080:8080"
     volumes:
@@ -13,10 +14,11 @@ services:
 
   db:
     image: postgres:11.4
-    environment:
-      POSTGRES_PASSWORD: test_pass
-      POSTGRES_USER: velocore
-      POSTGRES_DB: velo_core_db
+    container_name: velo_core_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./docker/postgres/initdb.sql:/docker-entrypoint-initdb.d/init.sql"
 
 #
 #  redis:
