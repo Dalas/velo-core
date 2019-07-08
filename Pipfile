@@ -12,7 +12,8 @@ sqlalchemy = "*"
 asyncpgsa = "*"
 alembic = "*"
 psycopg2 = "*"
-uwloop = "*"
+pyyaml = "*"
+uvloop = "*"
 
 [requires]
 python_version = "3.7"
