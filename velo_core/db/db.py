@@ -14,6 +14,9 @@ class DBWrapper:
             max_size=15
         )
 
+    async def initialize(self):
+        await self._pool
+
     async def fetch(self, query):
         async with self._pool.acquire() as conn:
             return await conn.fetch(query)
@@ -38,6 +41,7 @@ class DBWrapper:
 
 async def setup_connection_pool(app: web.Application):
     app['DB'] = DBWrapper(app['SETTINGS']['db']['cs'])
+    await app['DB'].initialize()
 
 
 async def teardown_connection_pool(app: web.Application):

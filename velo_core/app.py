@@ -9,7 +9,7 @@ async def on_startup(app: web.Application):
     await setup_connection_pool(app)
 
 
-async def on_teardown(app: web.Application):
+async def on_shutdown(app: web.Application):
     await teardown_connection_pool(app)
 
 
@@ -18,5 +18,8 @@ def get_app():
 
     app['SETTINGS'] = load_settings()
     app.add_routes(routes)
+
+    app.on_startup.append(on_startup)
+    app.on_shutdown.append(on_shutdown)
 
     return app

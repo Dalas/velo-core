@@ -7,10 +7,10 @@ default:
 	@ echo "make downgrade                          #  downgrade db"
 
 migration:
-	docker-compose exec web bash -c "alembic -c /etc/velocore/alembic.ini revision --autogenerate -m \"$(NAME)\""
+	docker-compose exec velo_core bash -c "alembic -c /etc/velocore/alembic.ini revision --autogenerate -m \"$(NAME)\""
 
 migrate:
-	docker-compose exec web bash -c "alembic -c /etc/velocore/alembic.ini upgrade head"
+	docker-compose exec velo_core bash -c "alembic -c /etc/velocore/alembic.ini upgrade head"
 
 downgrade:
-	docker-compose exec web bash -c "alembic -c /etc/velocore/alembic.ini downgrade -1"
+	docker-compose exec velo_core bash -c "alembic -c /etc/velocore/alembic.ini downgrade -1"
